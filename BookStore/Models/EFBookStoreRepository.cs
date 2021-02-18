@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Parker Mecham, Section 1
+
+using System;
 using System.Linq;
 
 namespace BookStore.Models

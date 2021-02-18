@@ -1,8 +1,11 @@
-﻿using System;
+﻿//Parker Mecham, Section 1
+
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Models
 {
+    //Class that sets and gets info for each book 
     public class Book
     {
 
@@ -23,6 +26,8 @@ namespace BookStore.Models
         [Required]
         public string Publisher { get; set; }
 
+
+        //Includes regular expression to validate the ISBN
         [Required]
         [RegularExpression("^[0-9]{3}-[0-9]{10}$")]
         public string ISBN { get; set; }

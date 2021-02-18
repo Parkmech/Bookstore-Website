@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Parker Mecham, Section 1
+
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.Models

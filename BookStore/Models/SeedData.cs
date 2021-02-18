@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Parker Mecham, Section 1
+//This page contains all the seed data to display on the web page
+
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,20 +10,25 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
+
+//All the books are created here
 namespace BookStore.Models
 {
     public class SeedData
     {
+        //makes sure that the database is populated
         public static void EnsurePopulated(IApplicationBuilder application)
         {
             BookStoreDBContext context = application.ApplicationServices.
                 CreateScope().ServiceProvider.GetRequiredService<BookStoreDBContext>();
 
+            //If there are any pending migrations, makes them
             if(context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();
             }
 
+            //If there isn't anything in the database, add these to it
             if(!context.Books.Any())
             {
                 context.Books.AddRange(
@@ -247,6 +255,7 @@ namespace BookStore.Models
 
                 ); 
 
+                //Saves changes to the database
                 context.SaveChanges();
             }
         }
