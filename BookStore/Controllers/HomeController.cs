@@ -13,14 +13,17 @@ namespace BookStore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private iBookStoreRepository _repository;
+
+        public HomeController(ILogger<HomeController> logger, iBookStoreRepository repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_repository.Books);
         }
 
         public IActionResult Privacy()
