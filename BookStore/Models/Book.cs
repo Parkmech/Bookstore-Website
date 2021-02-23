@@ -24,8 +24,10 @@ namespace BookStore.Models
         public string AuthLastName { get; set; }
 
         [Required]
-        public string Publisher { get; set; }
+        public int NumPages { get; set; }
 
+        [Required]
+        public string Publisher { get; set; }
 
         //Includes regular expression to validate the ISBN
         [Required]

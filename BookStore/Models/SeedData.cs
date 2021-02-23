@@ -44,6 +44,8 @@ namespace BookStore.Models
 
                         AuthLastName = "Hugo",
 
+                        NumPages = 1488,
+
                         Publisher = "Signet",
 
                         ISBN = "978-0451419439",
@@ -65,6 +67,8 @@ namespace BookStore.Models
                        AuthMiddleName = "Kearns",
 
                        AuthLastName = "Goodwin",
+
+                       NumPages = 944,
 
                        Publisher = "Simon & Schuster",
 
@@ -88,6 +92,8 @@ namespace BookStore.Models
 
                          AuthLastName = "Schroeder",
 
+                         NumPages = 832,
+
                          Publisher = "Bantam",
 
                          ISBN = "978-0553384611",
@@ -109,6 +115,8 @@ namespace BookStore.Models
                            AuthMiddleName = "C.",
 
                            AuthLastName = "White",
+
+                           NumPages = 864,
 
                            Publisher = "Random House",
 
@@ -132,6 +140,8 @@ namespace BookStore.Models
 
                              AuthLastName = "Hillenbrand",
 
+                             NumPages = 528,
+
                              Publisher = "Random House",
 
                              ISBN = "978-0812974492",
@@ -153,6 +163,8 @@ namespace BookStore.Models
                                AuthMiddleName = "",
 
                                AuthLastName = "Crichton",
+
+                               NumPages = 288,
 
                                Publisher = "Vintage",
 
@@ -176,6 +188,8 @@ namespace BookStore.Models
 
                                  AuthLastName = "Newport",
 
+                                 NumPages = 304,
+
                                  Publisher = "Grand Central Publishing",
 
                                  ISBN = "978-1455586691",
@@ -197,6 +211,8 @@ namespace BookStore.Models
                                    AuthMiddleName = "",
 
                                    AuthLastName = "Abrashoff",
+
+                                   NumPages = 240,
 
                                    Publisher = "Grand Central Publishing",
 
@@ -220,6 +236,8 @@ namespace BookStore.Models
 
                                      AuthLastName = "Branson",
 
+                                     NumPages = 400,
+
                                      Publisher = "Portfolio",
 
                                      ISBN = "978-1591847984",
@@ -241,6 +259,8 @@ namespace BookStore.Models
                                      AuthMiddleName = "",
 
                                      AuthLastName = "Grisham",
+
+                                     NumPages = 642,
 
                                      Publisher = "Bantam",
 
