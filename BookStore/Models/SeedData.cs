@@ -33,6 +33,7 @@ namespace BookStore.Models
             {
                 context.Books.AddRange(
 
+                    //New Book objects
                     new Book
                     {
 

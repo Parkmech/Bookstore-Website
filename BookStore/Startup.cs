@@ -57,6 +57,8 @@ namespace BookStore
 
             app.UseAuthorization();
 
+
+            //Sets the endpoints for the website so that the user can type a page number instead of a long string
             app.UseEndpoints(endpoints =>
             {
             endpoints.MapControllerRoute(

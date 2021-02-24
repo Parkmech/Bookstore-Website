@@ -9,22 +9,22 @@
 <!--This loop iterates through the model and gets all of the information that was entered in and adds it to the output-->
 @foreach (var x in Model.Books)
 {
+    <!--Card That holds all the info-->
      <div class="card card-outline-dark m-1 p-1">
 
          <div class="bg-dark p-1">
-
-
+             <!--Small Body of Text for the title-->
              <div class="card-body bg-dark">
                  <h2 class="display-3 text-center"><b>@x.Title</b></h2>
                  <br />
              </div>
 
+             <!--Puts the image and the list on the same row-->
              <div class="row">
-
                  <img style="height:50%; width:50%;" class="card-img-top col-4 m-1" src="@Url.Content(@x.Image)" alt="" />
 
                  <div class="col-6">
-
+                     <!--List with all the attributes from the database-->
                      <ul class="list-group list-group-flush bg-dark">
                          <li class="list-group-item bg-dark"> Author: @x.AuthFirstName @x.AuthMiddleName @x.AuthLastName</li>
                          <li class="list-group-item bg-dark">Length: @x.NumPages Pages</li>
@@ -34,6 +34,7 @@
                          <li class="list-group-item bg-dark">Price: $@x.Price</li>
                      </ul>
 
+                     <!--Badge that houses a link to the website where the user can purchase the book-->
                      <div class="card-body bg-dark">
                          <a style="font-size:24px" class="badge badge-pill badge-success" href="@x.PurchaseUrl">Purchase Here</a>
                      </div>
