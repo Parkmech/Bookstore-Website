@@ -15,13 +15,13 @@ namespace BookStore.Models
         [Required]
         public string Title { get; set; }
 
+        //Name Variables
         [Required]
         public string AuthFirstName { get; set; }
-
         public string? AuthMiddleName { get; set; }
-
         [Required]
         public string AuthLastName { get; set; }
+
 
         [Required]
         public int NumPages { get; set; }
@@ -42,6 +42,12 @@ namespace BookStore.Models
 
         [Required]
         public float Price { get; set; }
+
+
+        //Variables to add the image and url locations
+        public string Image { get; set; }
+
+        public string PurchaseUrl { get; set; }
 
     }
 }

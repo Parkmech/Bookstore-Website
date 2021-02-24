@@ -6,64 +6,55 @@
 
 @model BookListViewModel
 
-<div class="text-center">
-    <h1 style="font-size:50px"><b>Welcome to the Bookstore</b></h1>
-</div>
-
+<!--This loop iterates through the model and gets all of the information that was entered in and adds it to the output-->
 @foreach (var x in Model.Books)
 {
-    <div>
+     <div class="card card-outline-dark m-1 p-1">
+
+         <div class="bg-dark p-1">
 
 
+             <div class="card-body bg-dark">
+                 <h2 class="display-3 text-center"><b>@x.Title</b></h2>
+                 <br />
+             </div>
+
+             <div class="row">
+
+                 <img style="height:50%; width:50%;" class="card-img-top col-4 m-1" src="@Url.Content(@x.Image)" alt="" />
+
+                 <div class="col-6">
+
+                     <ul class="list-group list-group-flush bg-dark">
+                         <li class="list-group-item bg-dark"> Author: @x.AuthFirstName @x.AuthMiddleName @x.AuthLastName</li>
+                         <li class="list-group-item bg-dark">Length: @x.NumPages Pages</li>
+                         <li class="list-group-item bg-dark">Publisher: @x.Publisher</li>
+                         <li class="list-group-item bg-dark">ISBN: @x.ISBN</li>
+                         <li class="list-group-item bg-dark">Classification/Category: @x.Classification/@x.Category</li>
+                         <li class="list-group-item bg-dark">Price: $@x.Price</li>
+                     </ul>
+
+                     <div class="card-body bg-dark">
+                         <a style="font-size:24px" class="badge badge-pill badge-success" href="@x.PurchaseUrl">Purchase Here</a>
+                     </div>
+                 </div>
+
+             </div>
+             
+
+         
+
+         </div>
     </div>
+    <br />
 }
 
-<div class="text-center">
-
-    <table class="table table-hover table-dark table-striped">
-        <thead class="thead-dark">
-            <tr><th>Title</th><th>Author First Name</th><th>Author Middle Name </th><th>Author Last Name</th><th>Book Length</th><th>Publisher</th><th>ISBN</th><th>Classification</th><th>Category</th><th>Price</th></tr>
-        </thead>
-
-        <tbody>
-            <!--This loop iterates through the model and gets all of the information that was entered in and adds it to the table-->
-            @foreach (var x in Model.Books)
-            {
-                <tr>
-
-                    <td>@x.Title</td>
-                    <td>@x.AuthFirstName</td>
-                    <td>@x.AuthMiddleName</td>
-                    <td>@x.AuthLastName</td>
-                    <td>@x.NumPages Pages</td>
-                    <td>@x.Publisher</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.Classification</td>
-                    <td>@x.Category</td>
-                    <td>@x.Price</td>
-
-                </tr>
-            }
-
-        </tbody>
-    </table>
-
-  <!-- <div page-model="@Model.PagingInfo" page-action="Index"></div> -->
+<!--Populates the button menu with the number of pages depending on the size of the database-->
+<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary"
+     class="btn-group pull-right m-1">
 
 </div>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Pages</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav" page-model="@Model.PagingInfo" page-action="Index">
-
-            </ul>
-        </div>
-    </div>
-</nav>
 
 <footer>Copyright Scamazon 2021</footer>

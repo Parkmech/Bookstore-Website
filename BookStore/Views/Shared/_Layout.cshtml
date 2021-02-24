@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<!--Parker Mecham, Section 1 -->
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,12 +11,25 @@
 </head>
 
 <body>
-
+    <!-- Bookstore Span  -->
     <div class="bg-dark text-white p-2">
-        <span class ="navbar-brand ml-2">Book Store</span>
+        <span class="navbar-brand ml-2">Book Store</span>
     </div>
-    <br /><br /><br />
-        @RenderBody()
+
+    <div class="row m-1 p-1">
+
+        <!-- Weocome to the bookstore takes up 3 columns, the body takes the rest-->
+        <div id="blah" class="col-3">
+            <h1 style="font-size:50px"><b>Welcome to the Bookstore</b></h1>
+        </div>
+
+        <div class="col-9">
+
+            @RenderBody()
+
+        </div>
+
+    </div>
 
 </body>
 
