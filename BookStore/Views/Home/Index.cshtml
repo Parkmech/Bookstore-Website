@@ -22,7 +22,6 @@
              <!--Puts the image and the list on the same row-->
              <div class="row">
                  <img style="height:50%; width:50%;" class="card-img-top col-4 m-1" src="@Url.Content(@x.Image)" alt="" />
-
                  <div class="col-6">
                      <!--List with all the attributes from the database-->
                      <ul class="list-group list-group-flush bg-dark">
@@ -41,14 +40,10 @@
                  </div>
 
              </div>
-             
-
-         
-
          </div>
     </div>
     <br />
-}
+ }
 
 <!--Populates the button menu with the number of pages depending on the size of the database-->
 <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
