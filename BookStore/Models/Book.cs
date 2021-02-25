@@ -18,7 +18,9 @@ namespace BookStore.Models
         //Name Variables
         [Required]
         public string AuthFirstName { get; set; }
-        public string? AuthMiddleName { get; set; }
+
+        public string AuthMiddleName { get; set; }
+
         [Required]
         public string AuthLastName { get; set; }
 
