@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Book
+
+<!--Card That holds all the info-->
+<div class="card card-outline-dark m-1 p-1">
+
+    <div class="bg-dark p-1">
+        <!--Small Body of Text for the title-->
+        <div class="card-body bg-dark">
+            <h2 class="display-3 text-center"><b>@Model.Title</b></h2>
+            <br />
+        </div>
+
+        
+        <!--Puts the image and the list on the same row-->
+        <div class="row">
+            <img style="height:50%; width:50%;" class="card-img-top col-4 m-1" src="@Url.Content(@Model.Image)" alt="" />
+            <div class="col-6">
+                <!--List with all the attributes from the database-->
+                <ul class="list-group list-group-flush bg-dark">
+                    <li class="list-group-item bg-dark"> Author: @Model.AuthFirstName @Model.AuthMiddleName @Model.AuthLastName</li>
+                    <li class="list-group-item bg-dark">Length: @Model.NumPages Pages</li>
+                    <li class="list-group-item bg-dark">Publisher: @Model.Publisher</li>
+                    <li class="list-group-item bg-dark">ISBN: @Model.ISBN</li>
+                    <li class="list-group-item bg-dark">Classification/Category: @Model.Classification/@Model.Category</li>
+                    <li class="list-group-item bg-dark">Price: $@Model.Price</li>
+                </ul>
+
+                <!--Badge that houses a link to the website where the user can purchase the book-->
+                <div class="card-body bg-dark">
+                    <a style="font-size:24px" class="badge badge-pill badge-success" href="@Model.PurchaseUrl">Purchase Here</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br />

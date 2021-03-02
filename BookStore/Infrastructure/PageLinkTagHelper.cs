@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BookStore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -26,6 +27,8 @@ namespace BookStore.Infrastructure
 
         public string PageAction { get; set; }
 
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
 
         public bool PageClassesEnabled { get; set; } = false;
 
@@ -47,6 +50,9 @@ namespace BookStore.Infrastructure
 
                 TagBuilder tag = new TagBuilder("a");
 
+                PageUrlValues["page"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction,
+                    PageUrlValues);
 
                 if(PageClassesEnabled)
                 {

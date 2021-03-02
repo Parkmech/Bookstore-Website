@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Parker Mecham, Section 1 
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -15,7 +17,7 @@ namespace BookStore.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private iBookStoreRepository _repository;
-
+        //Sets the number of books per page
         public int PageSize = 5;
 
         public HomeController(ILogger<HomeController> logger, iBookStoreRepository repository)
@@ -24,22 +26,29 @@ namespace BookStore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
+            //Creates the page numbering data  
             return View(new BookListViewModel
             {
                 Books = _repository.Books
-                        .OrderBy(p => p.bookId)
+                        .OrderBy(b => b.bookId)
+                        .Where(b => category == null || b.Category == category)
                         .Skip((page - 1) * PageSize)
                         .Take(PageSize)
                     ,
+                //Sets the items on the page equal to the full repository unless one of the categories has been selected,
+                //then it sets it equal to whichever category is selected. 
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Books.Count()
+                    TotalNumItems = category == null ? _repository.Books.Count() :
+                        _repository.Books.Where(x => x.Category == category).Count()
+                },
 
-                }
+                CurrentCategory = category
+
             });
         }
 
