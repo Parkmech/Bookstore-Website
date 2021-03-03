@@ -35,6 +35,8 @@ namespace BookStore
            });
 
             services.AddScoped<iBookStoreRepository, EFBookStoreRepository>();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,24 +64,28 @@ namespace BookStore
             app.UseEndpoints(endpoints =>
             {
 
-            endpoints.MapControllerRoute("catpage",
-                "{category}/{page:int}",
-                new { Controller = "Home", action = "Index" }
-                );
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" }
+                    );
 
-            endpoints.MapControllerRoute("page",
-                "{page:int}",
-                new { Controller = "Home", action = "Index" }
-                );
+                endpoints.MapControllerRoute("page",
+                    "{page:int}",
+                    new { Controller = "Home", action = "Index" }
+                    );
 
-            endpoints.MapControllerRoute("category",
-                "{category}",
-                new { Controller = "Home", action = "Index", page = 1 }
-                );
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 }
+                    );
 
-            endpoints.MapControllerRoute( "pagination",
-                "Books/{page}",
-                new { Controller = "Home", action = "Index", page = 1 });
+                endpoints.MapControllerRoute("page",
+                    "Books/{page}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                endpoints.MapControllerRoute("pagination",
+                    "{page}",
+                    new { Controller = "Home", action = "Index", page = 1});
 
                 endpoints.MapDefaultControllerRoute();
             });
