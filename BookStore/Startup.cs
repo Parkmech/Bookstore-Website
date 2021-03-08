@@ -88,6 +88,8 @@ namespace BookStore
                     new { Controller = "Home", action = "Index", page = 1});
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
 
             SeedData.EnsurePopulated(app);
