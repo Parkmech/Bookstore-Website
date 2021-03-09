@@ -3,9 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BookStore</title>
+
+    <link href=”//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css” rel=”stylesheet”>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -13,7 +16,14 @@
 <body>
     <!-- Bookstore Span  -->
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">Book Store</span>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">Book Store</div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row m-1 p-1">
@@ -25,7 +35,7 @@
             <vc:navigation-menu />
         </div>
 
-        
+
 
         <div class="col-9">
 

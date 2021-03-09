@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BookStore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -37,6 +38,14 @@ namespace BookStore
             services.AddScoped<iBookStoreRepository, EFBookStoreRepository>();
 
             services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
+
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +66,8 @@ namespace BookStore
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthorization();
 
 
@@ -65,27 +76,27 @@ namespace BookStore
             {
 
                 endpoints.MapControllerRoute("catpage",
-                    "{category}/{page:int}",
+                    "{category}/{pageNum:int}",
                     new { Controller = "Home", action = "Index" }
                     );
 
                 endpoints.MapControllerRoute("page",
-                    "{page:int}",
+                    "{pageNum:int}",
                     new { Controller = "Home", action = "Index" }
                     );
 
                 endpoints.MapControllerRoute("category",
                     "{category}",
-                    new { Controller = "Home", action = "Index", page = 1 }
+                    new { Controller = "Home", action = "Index", pageNum = 1 }
                     );
 
                 endpoints.MapControllerRoute("page",
-                    "Books/{page}",
-                    new { Controller = "Home", action = "Index", page = 1 });
+                    "Books/{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
 
                 endpoints.MapControllerRoute("pagination",
-                    "{page}",
-                    new { Controller = "Home", action = "Index", page = 1});
+                    "{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum = 1});
 
                 endpoints.MapDefaultControllerRoute();
 

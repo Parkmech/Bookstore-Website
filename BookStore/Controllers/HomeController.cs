@@ -26,7 +26,7 @@ namespace BookStore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             //Creates the page numbering data  
             return View(new BookListViewModel
@@ -34,14 +34,14 @@ namespace BookStore.Controllers
                 Books = _repository.Books
                         .OrderBy(b => b.bookId)
                         .Where(b => category == null || b.Category == category)
-                        .Skip((page - 1) * PageSize)
+                        .Skip((pageNum - 1) * PageSize)
                         .Take(PageSize)
                     ,
                 //Sets the items on the page equal to the full repository unless one of the categories has been selected,
                 //then it sets it equal to whichever category is selected. 
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = pageNum,
                     ItemsPerPage = PageSize,
                     TotalNumItems = category == null ? _repository.Books.Count() :
                         _repository.Books.Where(x => x.Category == category).Count()

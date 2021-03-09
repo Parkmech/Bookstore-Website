@@ -50,7 +50,7 @@ namespace BookStore.Infrastructure
 
                 TagBuilder tag = new TagBuilder("a");
 
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
                 tag.Attributes["href"] = urlHelper.Action(PageAction,
                     PageUrlValues);
 
@@ -60,7 +60,7 @@ namespace BookStore.Infrastructure
                     tag.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal); 
                 }
 
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+                tag.Attributes["href"] = urlHelper.Action(PageAction, new { pageNum = i });
 
                 tag.InnerHtml.Append(i.ToString());
 
