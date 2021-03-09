@@ -16,7 +16,7 @@
         <small class="navbar-text">
             <b>Your cart:</b>
             @Model.Lines.Sum(x => x.Quantity) item(s)
-            @Model.ComputeTotalSum().ToString("c")
+            @Model.ComputeTotalSum().ToString("c", System.Globalization.CultureInfo.GetCultureInfo("en-us"))
         </small>
     }
 

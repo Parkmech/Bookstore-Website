@@ -23,8 +23,8 @@
             <tr>
                 <td class="text-left">@line.Book.Title</td>
                 <td class="text-center">@line.Quantity</td>
-                <td class="text-right">@line.Book.Price.ToString("c")</td>
-                <td class="text-right">@((line.Quantity * line.Book.Price).ToString("c"))</td>
+                <td class="text-right">@line.Book.Price.ToString("c", System.Globalization.CultureInfo.GetCultureInfo("en-us"))</td>
+                <td class="text-right">@((line.Quantity * line.Book.Price).ToString("c", System.Globalization.CultureInfo.GetCultureInfo("en-us")))</td>
                 <td class="text-center">
                     <form asp-page-handler="Remove" method="post">
                         <input type="hidden" name="bookId"
@@ -43,7 +43,7 @@
     <tfoot>
         <tr>
             <td class="text-right" colspan="3">Total: </td>
-            <td class="text-right">@Model.Cart.ComputeTotalSum().ToString("c")</td>
+            <td class="text-right">@Model.Cart.ComputeTotalSum().ToString("c", System.Globalization.CultureInfo.GetCultureInfo("en-us"))</td>
         </tr>
     </tfoot>
 
