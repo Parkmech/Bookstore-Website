@@ -30,11 +30,10 @@ namespace BookStore
         {
             services.AddControllersWithViews();
 
+            //Non-AWS Connection method that uses the appsettings.json file
             services.AddDbContext<BookStoreDBContext>(options =>
-           {
-           options.UseSqlite(Configuration.GetConnectionString("BookStoreConnection"));
-           });
-
+              options.UseSqlServer(Configuration.GetConnectionString("BookStoreConnection")));
+            
             services.AddScoped<iBookStoreRepository, EFBookStoreRepository>();
 
             services.AddRazorPages();
